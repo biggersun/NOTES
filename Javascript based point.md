@@ -8,7 +8,9 @@
   
 - [javascript秘密花园](http://bonsaiden.github.io/JavaScript-Garden/zh/)  
 - [jQurey的基本原理](http://docs.huihoo.com/jquery/jquery-fundamentals/zh-cn/index.html) 
+
  - - -
+
 ###null和undefined  
 - undefined 变量声明之后未被初始化，这时变量的默认值为 undefined 
 
