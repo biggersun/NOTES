@@ -30,6 +30,7 @@
 	>var name = otherName || "default";
 - 三元操作符
 	>var allowed = (age>18) ? "yes" : "no";
+
 ###如何访问用预留关键字做名称的值
 
 	obj.for = "sun";//语法错误，for 是一个预留关键字
@@ -47,6 +48,7 @@
 	>for (var i = 0,item ;item = a[++];){  //通过item代替a[i]  }  
 	
      这种方法还是判断for的中间部分表达式(item = a[i])的真假，i每递增1，数组元素逐个传递给item，直到遇到假元素(如undefined)循环结束
+     
 ###arguments对象
 - 编写一个加法函数
 
