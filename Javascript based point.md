@@ -146,5 +146,29 @@
 			document.getElementById('el').onclick = function(){
 				this.style.backgroundColor('red');
 			}
-		} 
+		}
+还可以添加另外的闭包来破坏因为闭包导致的循环引用 
+
+		function changrColor(){
+			var clickC = function(){
+				this.style.backgroundColor('red');
+			}
+			(function(){
+				var el = document.getElementById('el');
+				el.onclick = clickC();
+			})();
+		}
+内部函数被直接执行，并在clickC创建的闭包中隐藏了它的内容。
+
+###javascript对象的理解
+
+- 数字的字面量是不是对象？
+		
+		2.toString();//出错：SyntaxError
+其实是javascript解析器的一个错误，它试图将点操作符解析为浮点数字面值的一部分  
+可以通过下面的方法让数字的字面量"变得"正常
+		
+		2..toString();//第二个点可以正常解析
+		2 .toString();//点号前加空格
+		(2).toString();//2先被计算
 
