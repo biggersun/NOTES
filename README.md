@@ -4,5 +4,6 @@
 从最开始的一提起前端似乎简单明了的用html，css，javascript就能概括，到sass，less之争，各种框架都快看花了我的眼睛，所以阶段性的梳理会成为必要的事情。 
  - - - 
 - [javascript基础](https://github.com/biggersun/blog/blob/master/Javascript%20based%20point.md)  
+- [利用闭包循环绑定事件](https://github.com/biggersun/blog/blob/master/index.md)
 - (待更新...)
 
