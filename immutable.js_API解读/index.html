@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>immutable.js</title>
+</head>
+<body>
+	
+</body>
+<script src='./immutable.min.js'></script>
+<script>
+
+fromJS()
+	let a1 = Immutable.fromJS({ a: { c: 1 }, b: 2 });
+	let a2 = a1.setIn(['a', 'c'],3);
+	console.log(a2.getIn(['a', 'c']));
+	console.log(a1.getIn(['a', 'c']));
+
+map()
+console.log(Immutable);
+	let a1 = Immutable.Map({ a: Immutable.Map({ c: 1 }), b: 2 });
+	let a2 = a1.set('b',3);
+	console.log(a2.get('b'));
+	console.log(a1.getIn(['a', 'c']));
+
+
+//常用API
+const obj1 = { a : 1 };
+const obj = { b : 2 }
+// 将JS对象转换为Immutable对象
+const im = Immutable.fromJS(obj1)
+// 将Immutable对象转换为JS对象
+const obj = im.toJS();
+// 将Immutable对象转换为JSON对象
+const json = im.toJSON();
+// 判断对象中是否有值
+const bool = im.has(name);
+// 判断两个对象是否相等
+const bool = im1.equals(im2);
+// 赋值/深度赋值，SetIn方法将依次查找到最后一层的key并执行赋值
+// 要注意这两个方法并不会自动将obj转换为immutable对象存储！
+const newIm = im.set(key, value);
+const newIm = im.setIn([key1, key2, ......], value);
+// 取值/深度取值
+// 深度取值第二个参数是一个可选的默认值，这是一种optional的实现，如果找不到值，将会返回默认值
+const value = im.get(key);
+const value = im.getIn([key1, key2, ......], defaultValue);
+// 归并，obj可以是Immutable对象也可以是JS对象
+const newIm = im.merge(obj);
+
+</script>
+</html>
