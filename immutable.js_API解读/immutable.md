@@ -33,6 +33,14 @@
 
 	immutableA.setIn(['a', 'c'], 3);
 	
+####关于 List 操作
+	const list1 = Immutable.List.of(1,2,3);
+	const list2 = Immutable.List([4,5]);
+	list1.insert(1,4);
+	console.log(list1); //没变
+	list1.push(4);
+	console.log(list1); //也不变,不管是insert() 还是push() 都不能改变 list1本身
+	必须用新的 list 来接改变后的值 ,之前 javascript 那一套操作数组的思想要改变了
 ####合并对象
 
 	immutableB = immutableA.merge(immutableC)

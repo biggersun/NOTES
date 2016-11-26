@@ -9,12 +9,22 @@
 </body>
 <script src='./immutable.min.js'></script>
 <script>
-	const a1 = Immutable.fromJS({ a: { c: 1 }, b: 2 });
-	console.log(a1);
-	const a2 = Immutable.Map({ a: { c: 1 }, b: 2 });
-	console.log(a2);
-	const a3 = Immutable.List([ 1, [ 2, 3 ], 4 ]);
-	console.log(a3);
+//List =====
+const list1 = Immutable.List.of(1,2,3);
+const list2 = Immutable.List([4,5]);
+list1.insert(1,4);
+list1.push(4);
+console.log(list1); //不管是insert() 还是push()  都不能改变 list1本身,
+console.log(list1.insert(5));  //
+console.log(list1.push(4)); 
+
+//fromJS() 和 Map() List()
+	// const a1 = Immutable.fromJS({ a: { c: 1 }, b: 2 });
+	// console.log(a1);
+	// const a2 = Immutable.Map({ a: { c: 1 }, b: 2 });
+	// console.log(a2.getIn('a').c);
+	// const a3 = Immutable.fromJS([ { a : 1 }, { b : 1 }, { c : 3 } ]);
+	// console.log(a3);
 	// let a2 = a1.setIn(['a', 'c'],3);
 	// console.log(a2.getIn(['a', 'c']));
 	// console.log(a1.getIn(['a', 'c']));
@@ -57,9 +67,9 @@
 // const newIm = im.merge(obj);
 // const newIm = im.update("a",(x) => x + 1);
 
-//find() of List
-//find()  第一个参数是一个reducer 返回符合条件的结果 依次执行直到有一个符合就不再往下运行了 ,第三个参数为默认返回值
-//filter() 用法和find相似,返回符合条件的 List 结果
+// find() of List
+// find()  第一个参数是一个reducer 返回符合条件的结果 依次执行直到有一个符合就不再往下运行了 ,第三个参数为默认返回值
+// filter() 用法和find相似,返回符合条件的 List 结果
 // cons
 // let val = L1.filter(function (x) {
 // 	console.log(x);

@@ -5,6 +5,6 @@
  - - - 
 - [javascript基础](https://github.com/biggersun/blog/blob/master/Javascript%20based%20point.md)  
 - [利用闭包循环绑定事件](https://github.com/biggersun/blog/blob/master/index.md)
-- [immutable 常用 API 用法介绍](https://github.com/biggersun/blog/blob/master/immutable.js_API%E8%A7%A3%E8%AF%BB/index.html)
+- [immutable 常用 API 用法介绍](https://github.com/biggersun/blog/blob/master/immutable.js_API%E8%A7%A3%E8%AF%BB/immutable.md)
 - (待更新...)
 
