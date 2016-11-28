@@ -65,3 +65,23 @@
 
 	immutableData.keySeq()
 	immutableData.valueSeq()
+	
+####判断对象里是否存在值 has(`key`) 和 includes(`value`) 方法
+
+	const map1 = Immutable.Map({ a: 1, b: 2});
+	map1.has('a'); //true
+	map1.includes(1); //true
+	
+	//在 List 中,也可以用 includes()
+	const list1 = Immutable.List([1,2,3]);
+	list1.includes(1); //true
+	list1.has(1);//true
+	
+	//但是用push()或者insert()方法重组之后的 list,用has()方法是不能正确返回是否含有新增的值.
+	const list2 = list1.push(4);
+	list2.includes(4); //true
+	list2.has(4); //fasle
+	
+	//只能检查到之前就已经存在的值
+	list2.has(1); //true
+	

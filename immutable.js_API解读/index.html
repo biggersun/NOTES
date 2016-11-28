@@ -9,14 +9,27 @@
 </body>
 <script src='./immutable.min.js'></script>
 <script>
+//has()  include();
+const list1 = Immutable.List([1,2,3]);
+const list2 = list1.push(4);
+const list3 = list1.insert(3,4);
+// console.log(list2.includes(2));//true
+console.log(list2.has(4));//fasle
+
+const map1 = Immutable.Map({ a: 1, b: 2});
+const map2 = Immutable.Map({c:3});
+const map3 = map1.merge(map2)
+// console.log(map3.includes(3));
+// console.log(map3.has('c'));
+
 //List =====
-const list1 = Immutable.List.of(1,2,3);
-const list2 = Immutable.List([4,5]);
-list1.insert(1,4);
-list1.push(4);
-console.log(list1); //不管是insert() 还是push()  都不能改变 list1本身,
-console.log(list1.insert(5));  //
-console.log(list1.push(4)); 
+// const list1 = Immutable.List.of(1,2,3);
+// const list2 = Immutable.List([4,5]);
+// list1.insert(1,4);
+// list1.push(4);
+// console.log(list1); //不管是insert() 还是push()  都不能改变 list1本身,
+// console.log(list1.insert(5));  //
+// console.log(list1.push(4)); 
 
 //fromJS() 和 Map() List()
 	// const a1 = Immutable.fromJS({ a: { c: 1 }, b: 2 });
