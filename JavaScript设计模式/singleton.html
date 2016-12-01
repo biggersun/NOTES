@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>singleton</title>
+</head>
+<body>
+	<div id="ele"></div>
+</body>
+<script>
+//标准的单例模式
+	var Singleton=(function(){
+			var instantiated;
+			function init(){
+			/*这里定义单例代码*/
+				return{
+					publicMethod:function(){
+						console.log('helloworld');
+					},
+					publicProperty:'test'
+				};
+			}
+		return{
+			getInstance:function(){
+				if(!instantiated){
+					instantiated=init();
+				}
+				return instantiated;
+			}
+		};
+	})();
+	/*调用公有的方法来获取实例:*/
+	Singleton.getInstance().publicMethod();
+
+	//定时器单例
+	var CountDown = {
+    $ : function(id){/*id选择器*/
+    	return document.getElementById(id);
+    },
+    init :function(startTime,endTime,el){/*执行定时器入口，使用setTimeout调用_timer*/},
+    _timer : function(startTime,endTime,el){/*私有方法，处理时间参数等具体业务*/}
+	}
+	console.log(CountDown);
+	var CountDown1 = new CountDown;
+	console.log(CountDown1);
+	var countdown1 = CountDown.$('ele');
+	CountDown.init("","2016,04,23 9:34:44", countdown1);
+
+</script>
+</html>
