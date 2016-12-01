@@ -5,16 +5,18 @@
 
 第一种,如果我们需要在遍历的时候从dom节点中获取需要的数据,我们就可以直接在循环体内添加时间绑定就可以了.	
 
-	function bindClick1() {
-    	var memberList = $api.byId('memberList');
-    	var item = $api.domAll(memberList,'.item');
-    	for (var i = 0,itemLen = item.length; i < itemLen; i++) {
-      		$api.addEvt(item[i],'click',function () {
-          		itemId = $api.attr(this,'id');
-          		alert(i);
-      		});         
-    	}
-  	}
+```js
+function bindClick1() {
+    var memberList = $api.byId('memberList');
+    var item = $api.domAll(memberList,'.item');
+    for (var i = 0,itemLen = item.length; i < itemLen; i++) {
+      	$api.addEvt(item[i],'click',function () {
+        itemId = $api.attr(this,'id');
+          alert(i);
+      	});         
+    }
+}
+```
 
 第二种,当我们不是在dom中获取数据(一般都是..)的时候.我们就要用到闭包来处理
 
