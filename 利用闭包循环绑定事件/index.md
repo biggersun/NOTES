@@ -20,25 +20,28 @@ function bindClick1() {
 
 第二种,当我们不是在dom中获取数据(一般都是..)的时候.我们就要用到闭包来处理
 
-	function bindClick3() {
-    	var arr = [1,2,3];
-    	var item = $api.domAll($api.byId('memberList'),'.item');
-    	function bibao() {
-      		return function (i) {
-        		$api.addEvt(item[i],'click',function () {
-          			alert(arr[i]);
-        		}); 
-      		}
-    	}
-    	for (var i = 0,itemLen = item.length; i < itemLen; i++) {
-      		var func = bibao();
-      		func(i);           
-    	}
-  	}
+```js
+function bindClick3() {
+    var arr = [1,2,3];
+    var item = $api.domAll($api.byId('memberList'),'.item');
+    function bibao() {
+        return function (i) {
+            $api.addEvt(item[i],'click',function () {
+	        alert(arr[i]);
+            }); 
+        }
+    }
+    for (var i = 0,itemLen = item.length; i < itemLen; i++) {
+        var func = bibao();
+        func(i);           
+    }
+}
+```
  
 利用闭包的特性来保存变量,阻止变量的提升.
 可以简单的写成下面的形式
 
+```js
 	function bindClick2() {
     	var arr = [1,2,3];
     	var item = $api.domAll($api.byId('memberList'),'.item');
@@ -50,9 +53,11 @@ function bindClick1() {
       		})(i)                
     	}
   	}
- 
+```
+
 第三种最简单 利用es6的关键词 let .需要注意的是兼容性问题(可以用babel工具来转换使用)
 
+```js
 	function bindClick() {
     	var arr = [1,2,3,4];
     	var item = $api.domAll($api.byId('memberList'),'.item');
@@ -62,4 +67,4 @@ function bindClick1() {
       		});           
     	}
   	}
-  
+```
