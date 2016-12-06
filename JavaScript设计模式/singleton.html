@@ -8,6 +8,7 @@
 	<div id="ele"></div>
 </body>
 <script>
+
 //标准的单例模式
 	var Singleton=(function(){
 			var instantiated;
@@ -42,9 +43,24 @@
 	}
 	console.log(CountDown);
 	var CountDown1 = new CountDown;
-	console.log(CountDown1);
+	console.log(CountDown1); // CountDown is not a constructor(…)  constructor 是构造器
 	var countdown1 = CountDown.$('ele');
 	CountDown.init("","2016,04,23 9:34:44", countdown1);
+
+	// todo  -=-原型构造器写法--先码在这
+	// 标准的原型构造器写法，简单方便好理解，确定是每次都拿一个新定时器，实例增多后性能同样不好，按道理setTime，leftPad等方法都可以通过继承来实现，方便扩展和复用，prototype上的方法均为辅助方法，按理不应该被外部调用，这里应该封装为私有方法或者前缀+_，优点可以通过实例拿到相关倒计时属性，可以对实例再做扩展操作。
+	function Countdown(elem, startTime, endTime) {
+    this.elem = elem;
+    this.startTime = (new Date(startTime).getTime()) ? (new Date(startTime).getTime()) : (new Date().getTime());
+    this.endTime = new Date(endTime).getTime();
+	}
+	Countdown.prototype = {
+	    SetTime: function() {},
+	    leftPad: function(n) {},
+	    DownTime: function() {}
+	}
+	var test = new Countdown("time", "2016/1/30,12:20:12", "2017/1/30,12:20:12");
+	test.SetTime();
 
 </script>
 </html>

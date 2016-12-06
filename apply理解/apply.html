@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div></div>
+</body>
+<script>
+/* min/max number in an array */
+var numbers = [5, 6, 2, 3, 7];
+
+var toMax = function (number) {
+	Math.max.apply(this, number);
+}
+console.log(toMax(numbers));
+/* using Math.min/Math.max apply */
+var max = Math.max.apply(null, numbers); /* This about equal to Math.max(numbers[0], ...) or Math.max(5, 6, ..) */
+var min = Math.min.apply(null, numbers);
+
+// var A = function(a){
+//     // this.name = name;
+//     console.log(a);
+// }
+// var B = function(){
+//     A.apply(this, arguments);
+//     //apply传入对象时我知道this指向这个对象，请问apply（this）是什么意思呢？           
+// }
+// B.prototype.getName = function(){
+//     return this.name;
+// }
+ 
+// var b = new B("2B铅笔");
+// console.log(b);
+// console.log( b.name ); 
+</script>
+</html>
